@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hôtel Élégance | Luxe & Confort</title>
+    <link rel="stylesheet" href="hotel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Modal de bienvenue (s'affiche au chargement) -->
+    <div id="welcome-modal" class="modal welcome-modal">
+        <div class="modal-content welcome-content">
+            <div class="welcome-header">
+                <h2>Bienvenue à l'Hôtel Élégance</h2>
+                <p>Votre expérience de luxe commence ici</p>
+            </div>
+            <div class="welcome-body">
+                <div class="welcome-option">
+                    <div class="option-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Nouveau client</h3>
+                    <p>Créez un compte pour bénéficier de nos offres exclusives et gérer vos réservations</p>
+                    <button id="welcome-register" class="btn-option btn-primary">S'inscrire</button>
+                </div>
+                <div class="welcome-divider">
+                    <span>ou</span>
+                </div>
+                <div class="welcome-option">
+                    <div class="option-icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </div>
+                    <h3>Déjà client</h3>
+                    <p>Connectez-vous pour accéder à votre compte et vos réservations</p>
+                    <button id="welcome-login" class="btn-option">Se connecter</button>
+                </div>
+            </div>
+            <div class="welcome-footer">
+                <p>En continuant, vous acceptez nos <a href="#">conditions d'utilisation</a></p>
+                <button id="welcome-later" class="btn-text">Continuer sans compte (réservation limitée)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Hôtel<span>Élégance</span></a>
+            <div class="user-status" id="user-status">
+                <div class="user-info" id="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <button id="btn-logout" class="btn-logout"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+                <div class="guest-info" id="guest-info">
+                    <button id="btn-login" class="btn-auth">Connexion</button>
+                    <button id="btn-register" class="btn-auth btn-primary">Inscription</button>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#chambres">Chambres</a></li>
+                <li><a href="#reservation">Réservation</a></li>
+                <li class="nav-menu-item menu-link" style="display: none;"><a href="#restaurant">Menu Restaurant</a></li>
+                <li class="nav-auth-mobile">
+             <!-- Dans la navigation, après le lien Réservation -->
+ 
+                    <button id="btn-login-mobile" class="btn-auth">Connexion</button>
+                    <button id="btn-register-mobile" class="btn-auth btn-primary">Inscription</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Accueil/Hero -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Bienvenue à l'Hôtel <span>Élégance</span></h1>
+            <p class="hero-subtitle">Un havre de paix et de luxe au cœur de la ville</p>
+            <div class="hero-buttons">
+                <a href="#reservation" class="btn-hero" id="hero-reserve">Réserver maintenant</a>
+                <button class="btn-hero btn-secondary" id="hero-account">Mon compte</button>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2>Nos Services Exclusifs</h2>
+            <p>Découvrez les prestations qui font notre renommée</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bed"></i>
+                </div>
+                <h3>Chambres Luxueuses</h3>
+                <p>Chambres spacieuses avec vue imprenable, literie haut de gamme et tout le confort moderne.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-swimming-pool"></i>
+                </div>
+                <h3>Piscine Panoramique</h3>
+                <p>Piscine intérieure et extérieure avec vue sur la ville, chauffée toute l'année.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <h3>Café "Au Re-de-Chaussée"</h3>
+                <p>Notre café d'exception propose des pâtisseries artisanales et les meilleurs crus.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Spa & Bien-être</h3>
+                <p>Centre de remise en forme et spa avec des soins réalisés par des experts.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Restauration Gastronomique</h3>
+                <p>Restaurant étoilé proposant une cuisine créative à base de produits locaux.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-concierge-bell"></i>
+                </div>
+                <h3>Service Personnalisé</h3>
+                <p>Notre conciergerie est à votre disposition 24h/24 pour répondre à tous vos besoins.</p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Section Chambres -->
+<section id="chambres" class="chambres">
+    <div class="section-header">
+        <h2>Nos Chambres & Suites</h2>
+        <p>Un hébergement d'exception pour un séjour mémorable</p>
+    </div>
+    <div class="chambres-carousel-container">
+        <div class="chambres-carousel" id="chambresCarousel">
+            <!-- Les cartes seront dupliquées automatiquement par JS pour l'effet infini -->
+            <div class="chambre-card">
+                <div class="chambre-img" style="background-image: url(' Photos/chambre1.jpg');"></div>
+                <div class="chambre-info">
+                    <h3>Chambre Classique</h3>
+                    <p>Chambre confortable avec lit king-size, salle de bain en marbre et équipements high-tech.</p>
+                    <div class="chambre-features">
+                        <span><i class="fas fa-user-friends"></i> 2 personnes</span>
+                        <span><i class="fas fa-ruler-combined"></i> 35 m²</span>
+                    </div>
+                    <div class="chambre-price">À partir de <span>15 000 FCFA</span> / nuit</div>
+                    <button class="btn-reserve-room" data-room="classique">Réserver</button>
+                </div>
+            </div>
+            <div class="chambre-card">
+                <div class="chambre-img" style="background-image: url(' Photos/chambre2.jpg ');"></div>
+                <div class="chambre-info">
+                    <h3>Chambre Deluxe</h3>
+                    <p>Espace plus généreux avec coin salon, vue sur la ville et accès gratuit au spa.</p>
+                    <div class="chambre-features">
+                        <span><i class="fas fa-user-friends"></i> 2-3 personnes</span>
+                        <span><i class="fas fa-ruler-combined"></i> 50 m²</span>
+                    </div>
+                    <div class="chambre-price">À partir de <span>25 000 FCFA</span> / nuit</div>
+                    <button class="btn-reserve-room" data-room="deluxe">Réserver</button>
+                </div>
+            </div>
+            
+              <div class="chambre-card">
+                <div class="chambre-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="chambre-info">
+                    <h3>Appartemment</h3>
+                    <p>Suite luxueuse avec salon séparé,cuisine, dressing, pour un long séjour.</p>
+                    <div class="chambre-features">
+                        <span><i class="fas fa-user-friends"></i> 2 personnes</span>
+                        <span><i class="fas fa-ruler-combined"></i> 160 m²</span>
+                    </div>
+                    <div class="chambre-price">À partir de <span>150 000</span> / nuit</div>
+                    <button class="btn-reserve-room" data-room="suite">Réserver</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flèches de navigation (optionnelles) -->
+        <button class="carousel-arrow prev" id="carouselPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-arrow next" id="carouselNext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</section>
+
+<!-- Section Restaurant Menu -->
+<section id="restaurant" class="restaurant" style="display: none;">
+    <div class="section-header">
+        <h2>Notre Restaurant Gastronomique</h2>
+        <p>Découvrez notre carte raffinée, élaborée par notre chef étoilé</p>
+    </div>
+    
+    <!-- Catégories du menu -->
+    <div class="menu-categories">
+        <button class="category-btn active" data-category="entrees">Entrées</button>
+        <button class="category-btn" data-category="plats">Plats principaux</button>
+        <button class="category-btn" data-category="desserts">Desserts</button>
+        <button class="category-btn" data-category="boissons">Boissons</button>
+    </div>
+    
+    <!-- Grille des menus -->
+    <div class="menu-grid" id="menu-grid">
+        <!-- Les éléments seront générés par JavaScript -->
+    </div>
+    
+    <!-- Panier de commande -->
+    <div class="cart-container">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Votre commande</h3>
+            <span id="cart-count">0</span>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-cart">Votre panier est vide</p>
+        </div>
+        <div class="cart-total">
+            <span>Total :</span>
+            <span id="cart-total">0FCFA</span>
+        </div>
+        <button id="checkout-btn" class="btn-primary" disabled>Passer la commande</button>
+        <div id="order-message" class="message"></div>
+    </div>
+</section>
+    <!-- Section Réservation -->
+    <section id="reservation" class="reservation">
+        <div class="section-header">
+            <h2>Réserver votre séjour</h2>
+            <p>Planifiez votre expérience inoubliable dès maintenant</p>
+        </div>
+        
+        <!-- Message si non connecté -->
+        <div id="reservation-login-required" class="login-required" style="display: none;">
+            <div class="login-required-content">
+                <i class="fas fa-lock"></i>
+                <h3>Connectez-vous pour réserver</h3>
+                <p>Pour effectuer une réservation, vous devez avoir un compte. Cela vous permettra de gérer vos réservations, recevoir des offres exclusives et bien plus encore.</p>
+                <div class="login-required-buttons">
+                    <button id="required-login" class="btn-primary">Se connecter</button>
+                    <button id="required-register" class="btn-secondary">Créer un compte</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Formulaire de réservation (caché si non connecté) -->
+        <div id="reservation-form-container" class="reservation-container" style="display: none;">
+            <form id="form-reservation" class="reservation-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservation-nom"><i class="fas fa-user"></i> Nom complet</label>
+                        <input type="text" id="reservation-nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservation-email"><i class="fas fa-envelope"></i> Adresse email</label>
+                        <input type="email" id="reservation-email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservation-date-arrivee"><i class="fas fa-calendar-alt"></i> Date d'arrivée</label>
+                        <input type="date" id="reservation-date-arrivée" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservation-date-depart"><i class="fas fa-calendar-alt"></i> Date de départ</label>
+                        <input type="date" id="reservation-date-depart" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservation-chambre"><i class="fas fa-bed"></i> Type de chambre</label>
+                        <select id="reservation-chambre" required>
+                            <option value="">Sélectionnez une option</option>
+                            <option value="classique">Chambre Classique</option>
+                            <option value="deluxe">Chambre Deluxe</option>
+                            <option value="suite">Suite Présidentielle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservation-personnes"><i class="fas fa-user-friends"></i> Nombre de personnes</label>
+                        <select id="reservation-personnes" required>
+                            <option value="1">1 personne</option>
+                            <option value="2" selected>2 personnes</option>
+                            <option value="3">3 personnes</option>
+                            <option value="4">4 personnes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reservation-notes"><i class="fas fa-sticky-note"></i> Demandes spéciales</label>
+                    <textarea id="reservation-notes" rows="4" placeholder="Précisez vos demandes particulières (lit bébé, régime alimentaire, etc.)"></textarea>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn-reservation">Confirmer la réservation</button>
+                </div>
+                <div id="reservation-message" class="message"></div>
+            </form>
+            <div class="reservation-info">
+                <h3>Avantages du compte</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Historique de vos réservations</li>
+                    <li><i class="fas fa-check-circle"></i> Modifications faciles</li>
+                    <li><i class="fas fa-check-circle"></i> Offres exclusives membres</li>
+                    <li><i class="fas fa-check-circle"></i> Annulation simplifiée</li>
+                    <li><i class="fas fa-check-circle"></i> Programme de fidélité</li>
+                </ul>
+                <div class="user-reservations" id="user-reservations" style="display: none;">
+                    <h4>Mes réservations</h4>
+                    <div id="reservations-list"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Hôtel Élégance</h3>
+                <p>Un établissement 5 étoiles alliant tradition et modernité pour un séjour d'exception au cœur de Paris.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#chambres">Chambres</a></li>
+                    <li><a href="#reservation">Réservation</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Spa & Bien-être</a></li>
+                    <li><a href="#">Restaurant Gastronomique</a></li>
+                    <li><a href="#">Salles de réunion</a></li>
+                    <li><a href="#">Événements & Mariages</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Inscrivez-vous pour recevoir nos offres exclusives.</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Hôtel Élégance. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Modals pour Connexion/Inscription -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Connexion</h2>
+            <form id="form-login">
+                <div class="form-group">
+                    <label for="login-email">Adresse email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="remember-me"> Se souvenir de moi
+                    </label>
+                    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="btn-submit">Se connecter</button>
+                <div class="form-switch">
+                    <p>Pas encore de compte ? <a href="#" class="switch-to-register">S'inscrire</a></p>
+                </div>
+                <div id="login-message" class="message"></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-register" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Créer un compte</h2>
+            <form id="form-register">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="register-prenom">Prénom</label>
+                        <input type="text" id="register-prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-nom">Nom</label>
+                        <input type="text" id="register-nom" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Adresse email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Mot de passe</label>
+                    <input type="password" id="register-password" required>
+                    <small class="password-hint">Minimum 8 caractères avec chiffres et lettres</small>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">Confirmer le mot de passe</label>
+                    <input type="password" id="register-confirm" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="register-terms" required> J'accepte les <a href="#">conditions d'utilisation</a>
+                    </label>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="register-newsletter"> Je souhaite recevoir les offres exclusives
+                    </label>
+                </div>
+                <button type="submit" class="btn-submit">S'inscrire</button>
+                <div class="form-switch">
+                    <p>Déjà un compte ? <a href="#" class="switch-to-login">Se connecter</a></p>
+                </div>
+                <div id="register-message" class="message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de succès d'inscription -->
+    <div id="modal-welcome" class="modal">
+        <div class="modal-content welcome-success">
+            <span class="close-modal">&times;</span>
+            <div class="welcome-icon">
+                <i class="fas fa-glass-cheers"></i>
+            </div>
+            <h2>Bienvenue à l'Hôtel Élégance !</h2>
+            <p>Votre compte a été créé avec succès. Vous pouvez maintenant profiter de tous nos services :</p>
+            <ul class="welcome-benefits">
+                <li><i class="fas fa-check"></i> Effectuer des réservations</li>
+                <li><i class="fas fa-check"></i> Gérer vos séjours</li>
+                <li><i class="fas fa-check"></i> Bénéficier d'offres exclusives</li>
+                <li><i class="fas fa-check"></i> Accéder au programme de fidélité</li>
+            </ul>
+            <button id="btn-start-exploring" class="btn-primary">Commencer l'exploration</button>
+        </div>
+    </div>
+
+    <script src="hotel.js"></script>
+</body>
+</html>
